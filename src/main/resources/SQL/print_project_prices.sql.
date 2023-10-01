@@ -1,0 +1,15 @@
+SELECT id AS project_id, client_ID AS client_id, (level_salary + middle_salary) AS price
+FROM
+(SELECT project.ID, client_ID,
+	TRUNC(MONTHS_BETWEEN(FINISH_DATE, START_DATE)) AS W_month, SUM (SALARY) AS level_salary
+	FROM project
+	LEFT JOIN project_worker ON project.id = project_WORKER.project_id
+	LEFT JOIN worker ON project_worker.WORKER_ID = worker.id
+	group BY project.ID, client_ID, MONTHS_BETWEEN(FINISH_DATE, START_DATE)) salaries
+	LEFT JOIN
+	(SELECT project.ID, TRUNC(MONTHS_BETWEEN(FINISH_DATE, START_DATE)) AS M_middle, (SALARY * (months_between(min(FINISH_DATE), max(START_DATE)))) AS middle_salary
+	FROM project
+	LEFT JOIN project_worker ON project.id = project_WORKER.project_id
+	LEFT JOIN worker ON project_worker.WORKER_ID = worker.id
+	group BY project.ID, MIDDLE_salary, TRUNC(MONTHS_BETWEEN(FINISH_DATE, START_DATE)))test ON test.ID = salaries.ID
+;
