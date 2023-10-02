@@ -1,8 +1,7 @@
-SELECT 'YOUNGEST' AS TYPE, NAME_worker AS NAME_worker, BIRTHDAY
+SELECT 'YOUNGEST' AS type, name, birthday
 FROM worker
-WHERE BIRTHDAY = (SELECT MIN(BIRTHDAY) AS youngest FROM worker)
+WHERE birthday= (SELECT MAX(birthday) FROM worker)
 UNION ALL
-SELECT 'OLDEST' AS TYPE, NAME_worker AS NAME_worker, BIRTHDAY
+SELECT 'OLDEST' AS type, name, birthday
 FROM worker
-WHERE BIRTHDAY = (SELECT MAX(BIRTHDAY) AS eldest FROM worker)
-ORDER BY TYPE;
+WHERE birthday= (SELECT MIN(birthday) FROM worker);

@@ -1,2 +1,2 @@
-SELECT NAME_worker, SALARY FROM worker
-WHERE SALARY = (SELECT MAX(SALARY) FROM worker);
+SELECT name, salary FROM worker
+WHERE salary = (SELECT MAX(salary) FROM worker);

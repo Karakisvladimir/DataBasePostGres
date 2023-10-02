@@ -1,25 +1,65 @@
-INSERT INTO worker (ID, NAME_worker, BIRTHDAY, LEVEL, SALARY)
-VALUES (1, 'John Smith', DATE '1990-03-15', 'Trainee', 800), (2, 'Missis Smith', DATE '1995-05-20', 'Junior', 1200),
-(3, 'Michael Johnson', DATE '1988-01-10', 'Middle', 2500), (4, 'Volodimir Zelenskiy ', DATE '1987-08-05', 'Senior', 5200),
-(5, 'Daniel Brown', DATE '1993-11-27', 'Trainee', 900),(6, 'Olivia Rodriguez', DATE '1992-04-18', 'Junior', 1300),
-(7, 'Luchiano Pavorotti', DATE '1996-07-11', 'Middle', 2800),(8, 'Jenifer Lopez', DATE '1989-12-30', 'Senior', 5100),
-(9, 'Hylio Eglesias', DATE '1991-09-08', 'Trainee', 950),(10, 'Mario Puzo', DATE '1994-02-25', 'Junior', 1250);
+INSERT INTO worker (name, birthday, level, salary) VALUES
+	('Martin Doe', '2004-04-28', 'Trainee', 300),
+	('Bob Smith', '2005-06-12', 'Trainee', 300),
+	('Andrii Johnson', '2002-10-22', 'Junior', 700),
+	('Liza Brown', '2001-04-08', 'Junior', 600),
+	('Oleksandra Wilson', '1997-11-12', 'Middle', 1500),
+	('Max Lee', '1999-09-25', 'Middle', 1200),
+	('Serhii Wilson', '1996-07-18', 'Middle', 2900),
+	('Stiven Davis', '1998-03-05', 'Middle', 2200),
+	('Ilon Miller', '1995-12-30', 'Middle', 2600),
+	('Stepan Anderson', '1994-08-10', 'Senior', 3700),
+	('Ivat Johnson', '1992-05-20', 'Senior', 5500),
+	('Petro Davis', '1991-01-15', 'Senior', 4600);
 
-INSERT INTO client (ID, NAMES)
-VALUES (1, 'Nicon'), (2, 'Apple'), (3, 'Google'), (4, 'Samsung'), (5, 'Cisko');
+INSERT INTO client (name) VALUES
+	('John Kozak'),
+   ('Mary Giga'),
+   ('Robert Yavorenko'),
+	('Alice Ukrainka'),
+	('Michael Petliyra'),
+	('Emma Chubrynets'),
+	('David Markivna');
 
-INSERT INTO project (ID, CLIENT_ID, START_DATE, FINISH_DATE)
-VALUES (1, 3, TIMESTAMP '2022-01-15 00:00:00', TIMESTAMP '2024-08-31 00:00:00'),
-(2, 2, TIMESTAMP '2023-05-01 00:00:00', TIMESTAMP '2025-04-30 00:00:00'),
-(3, 3, TIMESTAMP '2023-10-01 00:00:00', TIMESTAMP '2024-06-30 00:00:00'),
-(4, 4, TIMESTAMP '2023-02-01 00:00:00', TIMESTAMP '2025-11-30 00:00:00'),
-(5, 5, TIMESTAMP '2023-03-15 00:00:00', TIMESTAMP '2025-01-31 00:00:00'),
-(6, 1, TIMESTAMP '2023-06-01 00:00:00', TIMESTAMP '2024-09-30 00:00:00'),
-(7, 2, TIMESTAMP '2023-10-01 00:00:00', TIMESTAMP '2025-02-28 00:00:00'),
-(8, 3, TIMESTAMP '2024-11-01 00:00:00', TIMESTAMP '2026-04-30 00:00:00'),
-(9, 4, TIMESTAMP '2024-04-01 00:00:00', TIMESTAMP '2026-01-31 00:00:00'),
-(10, 5, TIMESTAMP '2022-09-15 00:00:00', TIMESTAMP '2024-11-30 00:00:00');
+INSERT INTO project (client_id, start_date, finish_date) VALUES
+	(1, '2023-01-01', '2024-02-28'),
+   (1, '2023-02-15', '2023-05-15'),
+   (2, '2023-03-10', '2025-06-10'),
+   (3, '2023-04-05', '2024-07-05'),
+   (3, '2023-05-20', '2025-10-20'),
+   (3, '2023-06-15', '2023-07-15'),
+   (4, '2023-07-01', '2024-11-30'),
+   (5, '2023-08-10', '2026-08-20'),
+   (6, '2023-09-05', '2024-09-05'),
+   (6, '2023-10-01', '2023-11-30'),
+	(7, '2023-09-01', '2025-01-30');
 
-INSERT INTO project_worker (PROJECT_ID, WORKER_ID)
-VALUES (1, 1),(1, 2),(1, 3),(2, 4),(2, 5),(3, 6),(3, 7),(4, 8),(4, 9),
-       (5, 10),(6, 1),(7, 2),(8, 3),(9, 4), (10, 5);
+INSERT INTO project_worker (project_id, worker_id) VALUES
+	(1, 1),
+	(1, 3),
+	(1, 5),
+	(1, 10),
+	(2, 3),
+	(2, 6),
+	(2, 12),
+	(3, 7),
+	(3, 11),
+	(4, 2),
+	(4, 4),
+	(4, 11),
+	(5, 10),
+	(6, 4),
+	(6, 9),
+	(7, 1),
+	(7, 2),
+	(7, 8),
+	(8, 3),
+	(8, 1),
+	(8, 7),
+	(8, 10),
+	(9, 4),
+	(9, 9),
+	(10, 2),
+	(10, 5),
+	(10, 8),
+	(11, 12);
